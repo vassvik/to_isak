@@ -22,9 +22,10 @@ int main() {
 
     // setup vbo
     float vertex_data[] = {
-        -0.3, -0.3,
-         0.3, -0.3,
-         0.0,  0.5,
+        -1.0, -1.0,
+         1.0, -1.0,
+        -1.0,  1.0,
+         1.0,  1.0,
     };
 
     GLuint vbo;
@@ -49,7 +50,7 @@ int main() {
         glUseProgram(program);
 
         glBindVertexArray(vao);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
         glfwSwapBuffers(window);
     }
