@@ -1,4 +1,4 @@
-#version 330 core
+#version 450 core
 
 uniform vec2 scale;
 uniform vec2 offset;
