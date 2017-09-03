@@ -37,8 +37,6 @@ int main() {
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
     
-    
-    
     glClearColor(0.2, 0.3, 0.4, 1.0);
     while (!glfwWindowShouldClose(window) && glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_RELEASE) {
         calculate_frame_timings(window);
@@ -48,8 +46,14 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(program);
-
         glBindVertexArray(vao);
+
+        glUniform2f(glGetUniformLocation(program, "scale"), 0.5, 0.5);
+        glUniform2f(glGetUniformLocation(program, "offset"), -0.4, -0.4);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
+        glUniform2f(glGetUniformLocation(program, "scale"), 0.3, 0.3);
+        glUniform2f(glGetUniformLocation(program, "offset"), 0.6, 0.5);
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
         glfwSwapBuffers(window);
