@@ -1,8 +1,6 @@
-# Textured quads
-
 ## Compilation:
 
 ```
-gcc main.c -I../include -lglfw3
+gcc main.c -Iinclude -lglfw3
 ```
-# to_isak
+
