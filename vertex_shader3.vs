@@ -14,10 +14,8 @@ layout (std430, binding = 1) buffer quad_buffer {
 };
 
 void main() {
-	// expand gl_VertexID to vertex positions, assuming unit quads as the "primitive", matching glDrawArrays(GL_TRIANGLE_STRIP, 0, 4)
-	int x = gl_VertexID / 2;
-	int y = gl_VertexID % 2;
-	vec2 p = vec2(x, y);
+	// expand gl_VertexID to vertex positions
+	vec2 p = vertex_positions[gl_VertexID];
 
 	// use gl_InstanceID to grab offset and scale data
 	Quad q = quads[gl_InstanceID];
